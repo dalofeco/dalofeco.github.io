@@ -1,0 +1,283 @@
+@import '../global.scss';
+@import '../colors.scss';
+@import '../theme.scss';
+
+#ProjectsContainerHeader {
+    color: white;
+    margin-top: 1rem;
+    // font-size: 3rem;
+}
+
+#ProjectsContainer {
+    @extend .FlexRowWrapContainer;  
+    // background-color: black;
+    align-items: flex-start;
+    flex-grow: 1;
+    margin-top: 0.5rem;
+    padding: 0 1rem;
+
+
+    .ProjectContainer:first-child {
+        border-top: 5px solid rgba(255,255,255,0.3);
+    }
+
+    .ProjectContainer {
+        @extend .FlexLeftColContainer;
+        min-width: 400px;
+        padding: 1.5em 2.5em;
+        border-bottom: 5px solid rgba(255,255,255,0.3);
+        margin: 0 1rem;
+
+        // border-radius: 1em;
+        // height: auto;
+        // margin: 1em;
+        margin-bottom: 0rem;
+        display: flex;
+        width: 100%;
+        background-color: rgba(0,0,0,0.1);
+        // top: 0;
+        // flex-grow: 1;
+        // flex: 1;
+        // justify-self: center;
+        
+        // max-height: 20em;
+        color: white;
+
+        .ProjectHeadersContainer {
+            margin-bottom: 0.2rem;
+            width: 100%;
+            position: relative;
+        }
+
+        .ProjectHeader {
+            margin-bottom: 0.4rem;
+            // left: 0;
+            font-weight: 600;
+            color: $LINK_COLOR;
+            
+            &:hover {
+                cursor: pointer;
+                color: rgba(255,255,255,0.9);
+                // text-decoration: underline;
+            }
+        }
+
+        .ProjectSubHeader {
+            // margin-left: 2rem;
+            margin-bottom: 0.2rem;
+            letter-spacing: 0.2rem;
+        }
+
+        .ProjectDate {
+            // font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1.4px;
+            margin-bottom: 0;
+            position: absolute;
+            top: 1.6rem;
+            right: 0;
+        }
+
+        .ProjectHighlight {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1.4px;
+            margin-bottom: 0;
+            position: absolute;
+            top: 0.4rem;
+            right: 0;
+            color: $HIGHLIGHT_COLOR;
+        }
+
+        .ProjectSummary {
+            font-weight: 300;
+            // font-size: 0.5rem;
+            margin-bottom: 0;
+        }
+
+
+        .ProjectTechnologyList {
+            @extend .FlexRowWrapContainer;
+            width: 100%;
+            margin-bottom: -0.5em;
+
+            .ProjectTechnologyItem {
+                list-style: none;
+                padding: 0.2em 0.5em;
+                background-color: rgba(0, 0, 0, 0.3);
+                border-radius: 0.7em;
+                margin: 0 0.5em;
+                margin-bottom: 0.5em;
+            }
+
+            .ProjectTechnologyItem:first-child {
+                margin-left: none;
+            }
+
+            .ProjectTechnologyItem:last-child {
+                margin-right: none;
+            }
+
+        }
+    }
+
+    .ProjectContainer:last-child {
+        margin-bottom: unset;
+    }
+
+    @media (max-width: 400px) {
+        .ProjectContainer {
+            display: block;
+        }
+    }
+}
+
+#ProjectOverviewContainer {
+
+    @extend .FlexColContainer;
+    padding: 0rem 2rem;
+    position: relative;
+
+    .ProjectHeadersContainer {
+        margin-bottom: 0.2rem;
+        width: 100%;
+    }
+
+    .ProjectHeader {
+        @extend h2;
+        margin-bottom: 0.2rem;
+        // left: 0;
+        font-weight: 600;
+        text-align: center;
+        // color: $LINK_COLOR;
+        text-decoration: none;
+    }
+
+    .ProjectSubHeader {
+        // margin-left: 2rem;
+        margin-bottom: 0.2rem;
+        letter-spacing: 0.2rem;
+        text-align: center;
+    }
+
+    .ProjectDate {
+        // font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 1.4px;
+        margin-bottom: 0.8rem;
+        text-align: center;
+    }
+
+    .ProjectLinksContainer {
+        // position: absolute;
+        // top: 1.5rem;
+        // left: 1.5rem;
+        @extend .FlexRowContainer;
+        margin-bottom: 1rem;
+
+        .ProjectOverviewLinkButton {
+            margin-right: 1rem;
+            @extend .FlexRowContainer;
+            padding: 0 1rem;
+            height: 2rem;
+            width: 2rem;
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 5rem;
+            transition: all linear 100ms;
+            letter-spacing: 0.05rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: 1px solid white;
+            color: white;
+
+            label {
+                display: none;
+                opacity: 0;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            // label:hover {
+            //     cursor: pointer;
+            // }
+
+            svg {
+                transition: all linear 100ms;
+                width: 1.2rem;
+                height: 1.2rem;
+                color: white;
+            }
+            
+            &:hover {
+                background-color: white;
+                cursor: pointer;
+                color: black;
+
+                label {
+                    display: unset;
+                    opacity: 1;
+                }
+                svg {
+                    color: black;
+                }
+            }
+        }
+
+        .ProjectOverviewLinkButton:last-child {
+            margin-right: 0;
+        }
+
+        .ProjectOverviewGithubButton {
+            &:hover {
+                width: 6.5rem;
+            }
+        }
+
+        .ProjectOverviewDemoButton {
+            svg {
+                margin-left: 0.1rem;
+                width: 1rem;
+                height: 1rem;
+            }
+
+            &:hover {
+                width: 5.5rem;
+            }
+        }
+    }
+
+    .ProjectSummary {
+        font-weight: 300;
+    }
+
+    .ProjectTechnologyList {
+        @extend .FlexRowWrapContainer;
+        width: 100%;
+        margin-bottom: -1rem;
+        margin-left: 0;
+
+        .ProjectTechnologyItem {
+            font-size: 0.8rem;
+            letter-spacing: 0.03rem;
+            list-style: none;
+            padding: 0.2em 0.6em;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 0.7em;
+            border: 2px solid rgba(255,255,255,0.5);
+            margin: 0 0.5em;
+            margin-bottom: 0.5em;
+
+            &:first-child {
+                margin-left: none;
+            }
+
+            &:last-child {
+                margin-right: none;
+            }
+        }
+    }
+}

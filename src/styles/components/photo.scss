@@ -1,0 +1,241 @@
+@import '../global.scss';
+
+.GalleriesArticleContainer {
+    @extend .FlexRowWrapContainer;  
+    // background-color: black;
+    display: flex;
+    align-items: flex-start;
+    flex-grow: 1;
+    margin-top: -2rem;
+}
+
+.GalleriesArticlePhoto {
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.GalleriesArticleGalleryContainer {
+    @extend .FlexLeftColContainer;
+    min-width: 500px;
+    padding: 0.5em 0.5em;
+    max-width: 700px;;
+    // border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 1em;
+    // height: auto;
+    margin: 1em;
+    margin-bottom: 3em;
+    display: flex;
+    // width: 100%;
+    // top: 0;
+    // flex-grow: 1;
+    flex: 1;
+    // justify-self: center;
+    
+    // max-height: 20em;
+}
+
+.GalleriesArticleGalleryContainer:last-child {
+    margin-bottom: unset;
+}
+
+.GalleriesArticleHeadersContainer {
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+.GalleriesArticleHeader {
+    margin-bottom: unset;
+    left: 0;
+}
+
+.GalleriesArticleHeader:hover {
+    cursor: pointer;
+    color: rgba(255,255,255,0.9);
+    text-decoration: underline;
+}
+
+
+.GalleryArticleContainer {
+    @extend .FlexRowWrapContainer;  
+    // background-color: black;
+    display: flex;
+    align-items: flex-start;
+    flex-grow: 1;
+    margin-top: -2rem;
+}
+
+.GalleryPhotoContainer {
+    @extend .FlexLeftColContainer;
+    min-width: 500px;
+    padding: 0.5em 0.5em;
+    max-width: 700px;;
+    // border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 1em;
+    // height: auto;
+    margin: 1em;
+    margin-bottom: 3em;
+    display: flex;
+    // width: 100%;
+    // top: 0;
+    // flex-grow: 1;
+    flex: 1;
+    // justify-self: center;
+    
+    // max-height: 20em;
+}
+
+.GalleryPhotoHeadersContainer {
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+
+.GalleryPhotoHeader {
+    margin-bottom: unset;
+    left: 0;
+}
+
+.GalleryPhotoHeader:hover {
+    cursor: pointer;
+    color: rgba(255,255,255,0.9);
+    text-decoration: underline;
+}
+
+.GalleryPhotoSubHeader {
+    margin-bottom: 0.2em;
+}
+
+.GalleryPhotoMeta {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1.4px;
+    margin-bottom: 0;
+}
+
+.GalleryPhoto {
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.GalleryPhotoText {
+    margin-bottom: 1em;
+}
+
+@media (max-width: 400px) {
+	.GalleryPhotoContainer {
+        display: block;
+	}
+}
+
+.GalleryPhotoTagsList {
+    @extend .FlexRowWrapContainer;
+    width: 100%;
+    margin-bottom: -0.5em;
+}
+
+.GalleryPhotoTag {
+    list-style: none;
+    padding: 0.2em 0.5em;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 0.7em;
+    margin: 0 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.GalleryPhotoTag:first-child {
+    margin-left: none;
+}
+
+.GalleryPhotoTag:last-child {
+    margin-right: none;
+}
+
+
+
+
+
+
+
+
+.PhotoContainer {
+    @extend .FlexLeftColContainer;
+    min-width: 500px;
+    padding: 0.5em 0.5em;
+    max-width: 700px;;
+    // border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 1em;
+    // height: auto;
+    margin: 1em;
+    margin-bottom: 3em;
+    display: flex;
+    // width: 100%;
+    // top: 0;
+    // flex-grow: 1;
+    flex: 1;
+    // justify-self: center;
+    
+    // max-height: 20em;
+}
+
+.PhotoContainer:last-child {
+    margin-bottom: unset;
+}
+
+.PhotoHeadersContainer {
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+.PhotoHeader {
+    margin-bottom: unset;
+    left: 0;
+}
+
+.PhotoHeader:hover {
+    cursor: pointer;
+    color: rgba(255,255,255,0.9);
+    text-decoration: underline;
+}
+
+.PhotoSubHeader {
+    margin-bottom: 0.2em;
+}
+
+.PhotoDate {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1.4px;
+    margin-bottom: 0;
+}
+
+
+@media (max-width: 400px) {
+	.PhotoContainer {
+        display: block;
+	}
+}
+
+.PhotoTagsList {
+    @extend .FlexRowWrapContainer;
+    width: 100%;
+    margin-bottom: -0.5em;
+}
+
+.PhotoTag {
+    list-style: none;
+    padding: 0.2em 0.5em;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 0.7em;
+    margin: 0 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.PhotoTag:first-child {
+    margin-left: none;
+}
+
+.PhotoTag:last-child {
+    margin-right: none;
+}

@@ -1,0 +1,94 @@
+@import './theme.scss';
+
+div#bg {
+	opacity: 0.8 !important;
+}
+
+.FloatableContainer {
+	position: relative;
+}
+
+.TopRightContainer {
+	top: 0;
+	right: 0;
+	position: absolute;
+}
+
+.FlexRowContainer {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+  }
+
+.FlexColContainer {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+  }
+
+  .FlexRowTopContainer {
+    @extend .FlexRowContainer;
+	align-items: flex-start;
+  }
+  
+  .FlexRightRowContainer {
+	@extend .FlexRowContainer;
+	justify-content: flex-end;
+  }
+  
+  .FlexLeftRowContainer {
+    @extend .FlexRowContainer;
+	justify-content: flex-start;
+  }
+  
+  .FlexRowWrapContainer {
+    @extend .FlexRowContainer;
+	flex-flow: row wrap;
+  }
+  
+  .FlexLeftRowWrapContainer {
+    @extend .FlexRowWrapContainer;
+	justify-content: flex-start;
+  }
+  
+  .FlexRightRowWrapContainer {
+    @extend .FlexRowWrapContainer;
+	justify-content: flex-end;
+  }
+  
+  .FlexTopRowWrapContainer {
+    @extend .FlexRowWrapContainer;
+	align-items: flex-start;
+  }
+  
+  .FlexColWrapContainer {
+    @extend .FlexColContainer;
+	flex-flow: column wrap;
+  }
+  
+  .FlexRightColContainer {
+    @extend .FlexColContainer;
+	align-items: flex-end;
+  }
+  
+  .FlexLeftColContainer {
+    @extend .FlexColContainer;
+	align-items: flex-start;
+  }
+
+  .FlexTopColContainer {
+    @extend .FlexColContainer;
+    justify-content: flex-start;
+  }
+
+  .FlexTopRightColContainer {
+    @extend .FlexTopColContainer;
+    align-items: flex-end;
+  }
+  
+  .HalfWidth {
+	  width: 50%;
+  }
+  
