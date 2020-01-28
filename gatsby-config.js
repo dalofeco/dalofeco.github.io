@@ -1,4 +1,5 @@
 module.exports = {
+  // pathPrefix: "/dalofeco.github.io",
   siteMetadata: {
     title: 'Dalofeco',
     description: "Dalofeco's legitimate portfolio website",

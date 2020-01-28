@@ -56,7 +56,7 @@ const Navigation = (props: NavigationProps) => {
 
                     <div className="HalfWidth FlexLeftRowContainer">
                         <a href="javascript:;" onClick={() => {props.onNavigate('gallery')}}>Gallery</a>
-                        <a href="javascript:;" onClick={() => {props.onNavigate('contact')}}>Contact</a>
+                        <a href="javascript:;" onClick={() => {props.onNavigate('about')}}>About</a>
                     </div> 
                 </div>
             </nav>

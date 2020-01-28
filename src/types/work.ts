@@ -6,7 +6,7 @@ export interface WorkExperienceType {
     project: string;
     start_date: string;
     end_date: string;
-    responsabilities: string;
     summary: string;
+    responsabilities: Array<string>;
     technologies: Array<string>;
 }

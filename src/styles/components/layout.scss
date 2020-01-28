@@ -84,7 +84,7 @@ $transition_duration: 300ms;
 	width: 100vw;
 	height: 100vh;
 	// transition: all linear $transition_duration;
-	transition: background-color linear calc($transition_duration * 2);
+	transition: background-color linear $transition_duration * 2;
 	background-color: rgba(0,0,0,0.7);
 }
 
