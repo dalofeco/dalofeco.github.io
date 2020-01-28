@@ -4,7 +4,7 @@
         "date": "April 2018",
         "subtitle": "Live Video Classifier using TensorFlow",
         "summary": "Utilized an LSTM over a CNN to create a model for live video classification. The CNN used was a retrained version of Google's Inception v3 for image classification. The model was retrained using 500+ hours of footage, and deployed on a multithreaded web platform for system usage and management.",
-        "technologies": ["Python", "TensorFlow", "Tornado"],
+        "technologies": ["Python", "TensorFlow", "LSTM", "CNN", "AI", "Neural Networks", "Tornado"],
         "id": "videoclassifier",
         "github_url": "https://github.com/dalofeco/videoclassifier"
     },
@@ -13,7 +13,7 @@
         "name": "TensorExpert", 
         "date": "September 2017",
         "subtitle": "Machine Learning Data Analysis", 
-        "summary": "An active data harvesting on MongoDB database optimized for queries feeds an efficient framework for experimental neural network modeling and testing. An authenticated web interface with built-in session management provides users with an intuitive interface for data visualization, model generation, and running training sessions using TensorFlow.",
+        "summary": "An active data harvesting on InfluxDB database optimized for queries feeds an efficient framework for experimental neural network modeling and testing. A custom web application provides users with an intuitive interface for data visualization, model generation, and running experimental training sessions using TensorFlow. A better visualization environment provides alerts through Grafana dashboards.",
         "technologies": ["Python", "Tornado", "TensorFlow", "Grafana", "InfluxDB"],
         "id": "tensorexpert",
         "github_url": "https://github.com/dalofeco/tensorexpert"

@@ -2,6 +2,8 @@ import React from 'react';
 import {useStaticQuery, graphql, navigate} from 'gatsby';
 import { WorkExperienceType } from '../types/work';
 import '../styles/components/work.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
 export const WorkOverview = () => {
 
@@ -29,6 +31,11 @@ export const WorkOverview = () => {
     return (
         <>
         <h2 className="WorksOverviewHeader">Work</h2>
+        <div className="WorkOverviewTopLeftButtonContainer">
+            <a href="/files/resume.pdf" target="_blank">
+                <FontAwesomeIcon icon={faDownload}/>&nbsp;&nbsp;Resume
+            </a>
+        </div>
         <div className="WorksOverviewContainer">
             {workData.map(work => (
                 <div className="WorkOverviewContainer">
@@ -106,5 +113,10 @@ export const WorkDetailOverview = ({work} : WorkDetailOverviewProps) => (
         <p className="WorkOverviewSummary">
             {work.summary}
         </p>
+        <ul className="WorkOverviewResponsabilities">
+            {work.responsabilities.map((resp, i) => (
+                <li key={i}>{resp}</li>
+            ))}
+        </ul>
     </div>
 )

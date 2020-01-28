@@ -1,0 +1,131 @@
+@import '../global.scss';
+@import '../colors.scss';
+@import '../theme.scss';
+
+.AboutContainer {
+    @extend .FlexColContainer;
+    color: white;
+    padding: 1rem 3rem;
+    width: 100%;
+
+
+    .AboutHeaderContainer {
+        @extend .FlexColContainer;
+        width: 100%;
+        position: relative;
+        text-align: center;
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
+        border-bottom: 5px solid rgba(255,255,255,0.3);
+
+        .AboutHeader {
+            margin-bottom: 0.5rem;
+        }
+
+        .AboutSubHeader {
+            @extend h4;
+            color: $LINK_COLOR;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            
+            &:hover {
+                color: white;
+                cursor: pointer;
+            }
+        }
+
+        .AboutPhoneNumber {
+            font-weight: 300;
+            margin-bottom: 0.8rem;
+        }
+
+        .AboutLinkButtonsContainer {
+            @extend .FlexRowContainer;
+            // margin-bottom: 1rem;
+        }
+
+        .AboutLinkButton {
+            @extend .FlexRowContainer;
+            margin-right: 1rem;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 10rem;
+            padding: 0 1rem;
+
+            width: 2.2rem;
+            height: 2.2rem;
+
+            transition: all linear 100ms;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;;
+            font-size: 0.8rem;
+
+            label {
+                display: none;
+                opacity: 0;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            svg {
+                transition: all linear 100ms;
+                width: 1.2rem;
+                height: 1.2rem;
+            }
+
+            &:hover {
+                cursor: pointer;
+                color: black;
+                background-color: white;
+
+                label {
+                    display: unset;
+                    opacity: 1;
+                }
+
+                svg {
+                    color: black;
+                }
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        .AboutResumeLinkButton {
+            &:hover {
+                width: 7rem;
+            }
+
+        }
+    }
+
+    .AboutContentsContainer {
+
+        .AboutDescription {
+            margin-bottom: 1rem;
+        }
+
+        .AboutEducationContainer {
+            @extend .FlexColContainer;
+
+            .AboutEducationTitle, 
+            .AboutEducationInstitution {
+                font-weight: 400;
+                margin-bottom: 0;
+                margin-right: 1rem;
+                text-transform: uppercase;
+                letter-spacing: 0.1rem;
+            }
+
+            .AboutEducationInstitution {
+                font-weight: 600;
+            }
+        }
+    }
+
+
+}
