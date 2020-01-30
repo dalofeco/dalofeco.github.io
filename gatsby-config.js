@@ -40,7 +40,6 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-offline',
     'gatsby-plugin-compile-es6-packages',
-    'gatsby-plugin-typescript',
-    'gatsby-plugin-transition-link'
+    'gatsby-plugin-typescript'
   ],
 }

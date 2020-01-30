@@ -23,7 +23,6 @@
 
     .ProjectContainer {
         @extend .FlexLeftColContainer;
-        min-width: 400px;
         padding: 1.5em 2.5em;
         border-bottom: 5px solid rgba(255,255,255,0.3);
         margin: 0 1rem;
@@ -275,5 +274,15 @@
                 margin-right: none;
             }
         }
+    }
+}
+
+@media (max-width: 62rem) {
+    .ProjectDate {
+        position: unset !important;
+    }
+
+    .ProjectHighlight {
+        position: unset !important;
     }
 }

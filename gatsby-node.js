@@ -27,4 +27,22 @@ exports.createPages = async ({actions: { createPage } } ) => {
         });
     });
 
+    // createPage({
+    //     path: '/gallery/',
+    //     matchPath: '/gallery/*',
+    //     component: require.resolve("./src/templates/gallery.tsx")
+    // });
 }
+
+// Implement the Gatsby API “onCreatePage”. This is
+// called after every page is created.
+exports.onCreatePage = async ({ page, actions }) => {
+    const { createPage } = actions
+    // Only update the `/gallery` page.
+    if (page.path.match(/^\/gallery/)) {
+        // Update match path for all subdomains
+        page.matchPath = "/gallery/*"
+        // Update the page.
+        createPage(page)
+    }
+  }

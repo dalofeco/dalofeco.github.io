@@ -3,7 +3,7 @@ import {useStaticQuery, graphql, navigate} from 'gatsby';
 import { WorkExperienceType } from '../types/work';
 import '../styles/components/work.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faAddressCard } from '@fortawesome/free-solid-svg-icons';
 
 export const WorkOverview = () => {
 
@@ -30,20 +30,23 @@ export const WorkOverview = () => {
 
     return (
         <>
-        <h2 className="WorksOverviewHeader">Work</h2>
-        <div className="WorkOverviewTopLeftButtonContainer">
-            <a href="/files/resume.pdf" target="_blank">
-                <FontAwesomeIcon icon={faDownload}/>&nbsp;&nbsp;Resume
-            </a>
+        <div className="WorksOverviewHeaderContainer">
+            <h2 className="WorksOverviewHeader">Work</h2>
+            <div className="WorksOverviewLinksContainer">
+                <a className="WorksOverviewLinkButton WorksOverviewResumeLinkButton" href='files/resume.pdf'>
+                    <FontAwesomeIcon icon={faAddressCard}/>
+                    <label>&nbsp;&nbsp;Resume</label>
+                </a>
+                {/* <a href="/files/resume.pdf" target="_blank">
+                    <FontAwesomeIcon icon={faDownload}/>&nbsp;&nbsp;Resume
+                </a> */}
+            </div>
         </div>
+           
         <div className="WorksOverviewContainer">
             {workData.map(work => (
                 <div className="WorkOverviewContainer">
                     <div className="WorkOverviewHeaderContainer">
-                        <div className="WorkOverviewHeaderRightContainer">
-                            <p>{work.start_date} - {work.end_date}</p>
-                            <p className="WorkOverviewHeaderRightHighlight">{work.technologies[0]}</p>
-                        </div>
                         <h3 className="WorkOverviewHeader" onClick={() => navigate(`/work/${work.id}`)}>
                             {work.project}
                         </h3>
@@ -62,6 +65,12 @@ export const WorkOverview = () => {
                                 {work.company}
                             </h4>
                         }
+
+
+                        <div className="WorkOverviewHeaderRightContainer">
+                            <p>{work.start_date} - {work.end_date}</p>
+                            <p className="WorkOverviewHeaderRightHighlight">{work.technologies[0]}</p>
+                        </div>
 
                     </div>
                     <p className="WorkOverviewSummary">

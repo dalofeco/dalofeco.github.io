@@ -2,46 +2,119 @@
 @import '../colors.scss';
 @import '../theme.scss';
 
-.WorksOverviewHeader {
-    margin-top: 1rem;
-}
-
-
-.WorkOverviewTopLeftButtonContainer {
-    @extend .FlexLeftColContainer;
-    position: absolute;
-    top: 1.4rem;
-    left: 3.6rem;
+.WorksOverviewHeaderContainer {
+    @extend .FlexColContainer;
+    width: 100%;
+    text-align: center;
     padding-bottom: 1.5rem;
+    // margin-bottom: 1.5rem;
+    // border-bottom: 5px solid rgba(255,255,255,0.3);
 
-    a {
-        @extend .FlexRowContainer;
-        border: 2px solid rgba(255,255,255,0.5);
-        background-color: rgba(0,0,0,0.3);
-        color: rgba(255,255,255,0.5);
-        // height: 2rem;
-        letter-spacing: 0.05rem;
-        text-transform: uppercase;
-        text-decoration: none;
-        padding: 0.2rem 0.6rem;
-
-        &:hover {
-            background-color: white;
-            color: black;
-            cursor: pointer;
-        }
+    .WorksOverviewHeader {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
 
+    .WorksOverviewLinksContainer {
+        @extend .FlexRowContainer;
+        width: 100%;
+
+        .WorksOverviewLinkButton {
+            @extend .FlexRowContainer;
+            margin-right: 1rem;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 10rem;
+            padding: 0 1rem;
+
+            width: 2.2rem;
+            height: 2.2rem;
+
+            transition: all linear 100ms;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;;
+            font-size: 0.8rem;
+
+            label {
+                display: none;
+                opacity: 0;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            svg {
+                transition: all linear 100ms;
+                width: 1.2rem;
+                height: 1.2rem;
+            }
+
+            &:hover {
+                cursor: pointer;
+                color: black;
+                background-color: white;
+
+                label {
+                    display: unset;
+                    opacity: 1;
+                }
+
+                svg {
+                    color: black;
+                }
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        .WorksOverviewResumeLinkButton {
+            &:hover {
+                width: 7rem;
+            }
+        }
+
+    }
 }
 
+
+// .WorkOverviewTopLeftButtonContainer {
+//     @extend .FlexLeftColContainer;
+//     position: absolute;
+//     top: 1.4rem;
+//     left: 3.6rem;
+//     padding-bottom: 1.5rem;
+
+//     a {
+//         @extend .FlexRowContainer;
+//         border: 2px solid rgba(255,255,255,0.5);
+//         background-color: rgba(0,0,0,0.3);
+//         color: rgba(255,255,255,0.5);
+//         // height: 2rem;
+//         letter-spacing: 0.05rem;
+//         text-transform: uppercase;
+//         text-decoration: none;
+//         padding: 0.2rem 0.6rem;
+
+//         &:hover {
+//             background-color: white;
+//             color: black;
+//             cursor: pointer;
+//         }
+//     }
+
+// }
+
+
 .WorksOverviewContainer {
-    @extend .FlexLeftColContainer;
+    @extend .FlexColContainer;
     width: 100%;
 
     .WorkOverviewContainer {
         @extend .FlexColContainer;
         width: 100%;
-        min-width: 400px;
         padding: 1.5rem 2.5rem;
         border-bottom: 5px solid rgba(255,255,255,0.3);
         margin: 0 1rem;
@@ -116,6 +189,33 @@
             font-weight: 300;
             margin-bottom: 0;
         }
+    }
+
+
+    @media (max-width: 62.5em) {
+        .WorkOverviewContainer {
+            padding: 1.5rem 0.75rem;
+            margin: 0.5rem 0.5rem;
+
+            .WorkOverviewHeaderContainer {
+
+                .WorkOverviewHeaderRightContainer {
+                    align-items: flex-start;
+                    position: unset;
+                    top: unset;
+                    right: unset;
+                    padding-bottom: 0;
+                    height: unset;
+                }
+            }
+        }
+    }
+    @media (max-width: 36em) {
+        .WorkOverviewContainer {
+            padding: 0.4rem 0;
+            margin: 0;
+
+        }        
     }
 }
 

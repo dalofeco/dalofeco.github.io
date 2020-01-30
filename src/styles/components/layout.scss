@@ -19,6 +19,21 @@ $transition_duration: 300ms;
 	border: 5px solid rgba(255,255,255,0.3);
 	border-radius: 1rem;
 	background-color: rgba(0,0,0,0.65);
+
+}
+
+@media (max-width: 60em) {
+	#LayoutContentContainerModal {
+		margin: 0;
+	}
+
+	#LayoutContentContainer {
+		padding: 0;
+	}
+
+	#ProjectsContainer {
+		padding: 0.5rem;
+	}
 }
 
 #LayoutContentContainerCloseDiv {
