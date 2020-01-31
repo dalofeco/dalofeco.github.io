@@ -3,6 +3,7 @@
 #PhotoGalleryContainer {
     @extend .FlexColContainer;
     margin-top: 1rem;
+    width: 100%;
 
     #PhotoGalleryHeader {
         text-align: center;
@@ -10,6 +11,7 @@
 
     #PhotoGalleryAlbumContainer {
         @extend .FlexLeftRowContainer;
+        width: 100%;
 
         .PhotoGalleryAlbum {
             @extend .FlexColContainer;

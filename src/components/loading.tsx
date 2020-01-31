@@ -1,7 +1,17 @@
 import React from 'react';
+import ReactLoading from 'react-loading';
 
-const Loading = () => {
-    return <div className="Loading">Loading</div>;
+interface LoadingProps {
+    className?: string;
+    style?: any;
+}
+
+const Loading = ({className, style}: LoadingProps) => {
+    return (
+        <div style={style} className={`LoadingContainer ${className}`}>
+            <ReactLoading type="bars" color="#fff"/>
+        </div>
+    );
 }
 
 export default Loading;

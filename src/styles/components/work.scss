@@ -294,14 +294,39 @@
 
         .WorkOverviewSummary {
             font-weight: 300;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .WorkOverviewResponsabilitiesHeader {
+            width: 100%;
+            text-align: left;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
         }
 
         .WorkOverviewResponsabilities {
-            margin-bottom: 0;
+            margin-bottom: 1rem;
+            list-style: circle;
             li {
                 margin-bottom: 0.5rem;
                 font-weight: 300;
+            }
+        }
+
+        .WorkOverviewTechnologiesContainer {
+            @extend .FlexRowWrapContainer;
+            width: 100%;
+
+            span {
+
+                color: $HIGHLIGHT_COLOR;
+                margin-right: 1.5rem;
+                letter-spacing: 0.05rem;
+                font-weight: 400;
+                border: 1px solid $HIGHLIGHT_COLOR;
+                opacity: 0.9;
+                padding: 0.1rem 0.8rem;
+                border-radius: 0.5rem;
             }
         }
     }

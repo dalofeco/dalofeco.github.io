@@ -34,22 +34,22 @@ export const GalleryPage = ({location}: GalleryPageProps) => {
                         .catch(err => alert(err));
     })
 
-    // Wait until gallery is loaded
-    if (!gallery) 
-        return <Loading/>
+    // Only if gallery is loaded
+    if (gallery) {
 
-    // Get album name from location
-    const albumName: string = location.pathname.split('/').pop();
-    const albumIndex = gallery.albums.findIndex(a => a.name.toLowerCase() == albumName.toLowerCase());
-    if (albumIndex !== -1)
-        return (
-            <Layout modal closeLink="/gallery">
-                <SEO title={`${gallery.albums[albumIndex].name} Gallery`}/>
-                <div id="GalleryPageContainer">
-                    <PhotoAlbum album={gallery.albums[albumIndex]} setAlbum={setAlbum(albumIndex)}/>
-                </div>                
-            </Layout>        
-        )
+        // Get album name from location
+        const albumName: string = location.pathname.split('/').pop();
+        const albumIndex = gallery.albums.findIndex(a => a.name.toLowerCase() == albumName.toLowerCase());
+        if (albumIndex !== -1)
+            return (
+                <Layout modal closeLink="/gallery">
+                    <SEO title={`${gallery.albums[albumIndex].name} Gallery`}/>
+                    <div id="GalleryPageContainer">
+                        <PhotoAlbum album={gallery.albums[albumIndex]} setAlbum={setAlbum(albumIndex)}/>
+                    </div>                
+                </Layout>        
+            )
+    }
 
     // Gallery View
    return (
@@ -57,7 +57,7 @@ export const GalleryPage = ({location}: GalleryPageProps) => {
             <SEO title="Gallery" />
             <div id="GalleryPageContainer">
                 <PhotoGallery gallery={gallery}/>
-            </div>                
+            </div> 
         </Layout>        
     )
 }

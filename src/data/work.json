@@ -7,7 +7,7 @@
         "project": "LPSearch",
         "start_date": "April 2019",
         "end_date": "Current",
-        "summary": "Developed a full stack web application capable of handling company-wide traffic behind an Nginx reverse proxy. Designed a system capable of organizing and indexing company personnel and capabilities, making them retrievable through full-text search queries in a Google-like fashion.",
+        "summary": "Designed an internal system capable of organizing company personnel and capabilities, making them retrievable through full-text search queries in a Google-like fashion.",
         "responsabilities": [
             "Worked iteratively with client to design and develop a corporate search engine solution for a 250M+ yearly revenue company with 500+ employees and a flat organizational hierarchy",
             "Streamlined the process of discovering internal company capabilities and personnel with a Google-like search experience by consulting with client for their needs and expectations in an Agile workflow",

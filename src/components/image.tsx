@@ -1,32 +1,52 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import React, { useState } from "react"
+import EXIF from 'exif-js';
+import { PhotoMetadataType } from "../types/photo";
+import { getEXIF } from "../utils/exif";
+import Loading from "./Loading";
 
-/*
- * This component is built using `gatsby-image` to automatically serve optimized
- * images with lazy loading and reduced file sizes. The image is loaded using a
- * `useStaticQuery`, which allows us to load the image from directly within this
- * component, rather than having to pass the image data down from pages.
- *
- * For more information, see the docs:
- * - `gatsby-image`: https://gatsby.dev/gatsby-image
- * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
-const Image = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
-
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+interface ImageProps {
+	src: string;
+	id: string;
+	className?: string;
+	onLoad?: Function;
+	onClick?: any;
+	meta?: boolean;
 }
 
-export default Image
+
+const Image = ({src, id, className, onLoad, onClick, meta=false}: ImageProps) => {
+
+	const [loading, setLoading] = useState(true);
+
+	const onImageLoad = (e) => {
+
+		// Unset loading state
+		setLoading(false);
+
+		if (e && e.target) {
+
+			// Get image element
+			if (meta) {
+
+				const {id} = e.target;
+				const imageElement = document.getElementById(id);
+				if (!imageElement) return;
+
+				// Get EXIF and update state
+				getEXIF(imageElement).then((photoMetadata : PhotoMetadataType) => {
+					if (onLoad) onLoad(photoMetadata);
+				}).catch(err => alert(err));
+
+			} else if (onLoad) onLoad();
+		}
+	}
+
+	return (
+		<div className="FlexRowContainer">
+			<img id={id} className={className} src={src} onLoad={onImageLoad} onClick={onClick} style={{'display': loading ? 'none' : 'unset'}}/>
+			<Loading className={className} style={{'display': loading ? 'unset' : 'none'}}/>
+		</div>
+	)
+}
+
+export default Image;

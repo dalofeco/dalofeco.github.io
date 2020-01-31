@@ -122,10 +122,16 @@ export const WorkDetailOverview = ({work} : WorkDetailOverviewProps) => (
         <p className="WorkOverviewSummary">
             {work.summary}
         </p>
+        <h4 className="WorkOverviewResponsabilitiesHeader">Responsabilities</h4>
         <ul className="WorkOverviewResponsabilities">
             {work.responsabilities.map((resp, i) => (
                 <li key={i}>{resp}</li>
             ))}
         </ul>
+        <div className="WorkOverviewTechnologiesContainer">
+            {work.technologies.map((tech, i) => (
+                <span key={`${tech}-${i}`} className="WorkOverviewTechnology">{tech}</span>
+            ))}
+        </div>
     </div>
 )
