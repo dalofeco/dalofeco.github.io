@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: dalofeco.com 
-Token: e8eb583bad2cef0cdc978d482f6147496662ad2056aff02b60d44bb9a8febd4f
