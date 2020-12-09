@@ -1,8 +1,0 @@
-@import '../global.scss';
-
-#AboutPageContainer {
-    @extend .FlexRowWrapContainer;
-    align-items: flex-start;
-    flex-grow: 1;
-    color: white;
-}

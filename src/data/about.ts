@@ -1,0 +1,9 @@
+export default {
+  name: 'Daniel Lopez',
+  email: 'me@dalofeco.com',
+  phone_number: '202-714-2639',
+  description: 'A computer scientist ready to deliver next generation software.',
+  resume_url: '/files/resume.pdf',
+  education_title: 'Computer Science (B.S)',
+  education_institution: 'Penn State Behrend',
+};

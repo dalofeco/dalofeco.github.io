@@ -1,0 +1,149 @@
+@import '../global.less';
+
+#PhotoGalleryContainer {
+  &:extend(.FlexColContainer);
+  margin-top: 1rem;
+  width: 100%;
+
+  #PhotoGalleryHeader {
+    text-align: center;
+  }
+
+  #PhotoGalleryAlbumContainer {
+    &:extend(.FlexLeftRowWrapContainer);
+    width: 100%;
+
+    .PhotoGalleryAlbum {
+      &:extend(.FlexColContainer);
+      width: calc(33% - 2rem);
+      margin: 1rem;
+      padding: 1rem;
+      transition: all linear 50ms;
+
+      &:hover {
+        background-color: white;
+        color: black;
+        cursor: pointer;
+      }
+
+      .PhotoGalleryAlbumCover {
+        width: 100%;
+      }
+
+      .PhotoGalleryAlbumTitle {
+        text-align: center;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+#PhotoAlbumContainer {
+  &:extend(.FlexColContainer);
+
+  #PhotoAlbumHeaderContainer {
+    &:extend(.FlexColContainer);
+    text-align: center;
+  }
+
+  #PhotoAlbumPhotosContainer {
+    &:extend(.FlexRowWrapContainer);
+
+    .PhotoAlbumPhotoContainer {
+      &:extend(.FlexColContainer);
+      padding: 1rem;
+      width: calc(50% - 2rem);
+
+      .PhotoAlbumPhotoHeader {
+        text-align: center;
+        color: white;
+      }
+      .PhotoAlbumPhoto {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+#PhotoInspector {
+  &:extend(.FlexColContainer);
+  position: fixed;
+  top: 0;
+  padding: 2rem;
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none; /* Standard syntax */
+
+  #PhotoInspectorNavigateArrowLeft,
+  #PhotoInspectorNavigateArrowRight {
+    position: absolute;
+    height: 100vh;
+
+    svg {
+      width: 2.5rem;
+      height: 5rem;
+      border-radius: 10rem;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      padding: 0.5rem;
+      transition: all linear 100ms;
+
+      &:hover {
+        background-color: white;
+        color: black;
+        cursor: pointer;
+      }
+    }
+  }
+
+  #PhotoInspectorNavigateArrowLeft {
+    &:extend(.FlexLeftRowContainer);
+    left: 2rem;
+  }
+
+  #PhotoInspectorNavigateArrowRight {
+    &:extend(.FlexRightRowContainer);
+    right: 2rem;
+  }
+
+  #PhotoInspectorCloseContainer {
+    &:extend(.FlexRowContainer);
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+
+    svg {
+      height: 2.6rem;
+      width: 2.6rem;
+      padding: 0.5rem;
+      border-radius: 10rem;
+      border: 4px solid rgba(255, 255, 255, 0.5);
+      // padding: 0.5rem;
+      // border: 1px solid white;
+      transition: all linear 100ms;
+
+      &:hover {
+        cursor: pointer;
+        background-color: white;
+        color: black;
+      }
+    }
+  }
+
+  img {
+    height: 100%;
+  }
+
+  #PhotoInspectorMetadataContainer {
+    p {
+      margin-bottom: 0.2rem !important;
+    }
+  }
+}

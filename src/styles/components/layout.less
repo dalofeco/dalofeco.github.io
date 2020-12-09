@@ -1,0 +1,171 @@
+@import '../animations.less';
+@import '../global.less';
+
+@transition_duration: 300ms;
+
+#LayoutContentContainer {
+  padding: 2rem;
+  // height: 100vh;
+  // width: 100vw;
+  transition: all linear @transition_duration;
+  z-index: -1;
+  animation: fadeIn linear 300ms;
+}
+
+#LayoutContentContainerModal {
+  padding: 2rem;
+  margin: 3rem 5rem;
+  // background-color: rgba(0,0,0,0.3);
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 1rem;
+  background-color: rgba(0, 0, 0, 0.65);
+}
+
+@media (max-width: 60em) {
+  #LayoutContentContainerModal {
+    margin: 0;
+  }
+
+  #LayoutContentContainer {
+    padding: 0;
+  }
+
+  #ProjectsContainer {
+    padding: 0.5rem;
+  }
+}
+
+#LayoutContentContainerCloseDiv {
+  position: relative;
+}
+
+#LayoutContentContainerModalCloseButton {
+  &:extend(.FlexRowContainer);
+  position: relative;
+  height: 2rem;
+  width: qrem;
+  background-color: rgba(0, 0, 0, 0.65);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10rem;
+  color: rgba(255, 255, 255, 0.5);
+
+  display: flex;
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+
+  svg {
+    height: 1rem;
+    width: 1rem;
+  }
+}
+
+#LayoutContentContainerModalCloseButton:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  transition: color linear 100ms;
+  transition: background-color linear 100ms;
+}
+
+#LayoutBackground {
+  height: 100vh;
+  width: 100vw;
+
+  background-image: url('../../images/background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  filter: blur(0.2px);
+  -webkit-filter: blur(0.2px);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  opacity: 1;
+}
+
+#LayoutBackgroundBlack {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  // transition: all linear @transition_duration;
+  transition: background-color linear @transition_duration * 2;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+#LayoutBackgroundBlack.LayoutBackgroundBlackDarker {
+  background-color: rgba(0, 0, 0, 0.85) !important;
+}
+
+// #LayoutBackgroundBlurred {
+// 	&:extend(#LayoutBackground);
+// 	filter: blur(2px);
+// 	-webkit-filter: blur(2px);
+// }
+
+// #bg {
+// 	@include vendorrgba(27, 11, 11, 0.7)scale(1.0)');
+// 	-webkit-backface-visibility: hidden;
+// 	position: fixed;
+// 	top: 0;
+// 	left: 0;
+// 	width: 100%;
+// 	height: 100vh;
+// 	z-index: 1;
+
+// 	&:before, &:after {
+// 		content: '';
+// 		display: block;
+// 		position: absolute;
+// 		top: 0;
+// 		left: 0;
+// 		width: 100%;
+// 		height: 100%;
+// 	}
+
+// 	&:before {
+// 		@include vendor('transition', 'background-color #{_duration(bg)} ease-in-out');
+// 		@include vendor('transition-delay', '#{_duration(intro)}');
+// 		background-image:		linear-gradient(to top, #{_palette(bg-overlay)}, #{_palette(bg-overlay)}),
+// 								url('../../images/overlay.png');
+// 		background-size:		auto,
+// 								256px 256px;
+// 		background-position:	center,
+// 								center;
+// 		background-repeat:		no-repeat,
+// 								repeat;
+// 		z-index: 2;
+// 	}
+
+// 	&:after {
+// 		@include vendor('transform', 'scale(1.125)');
+// 		@include vendor('transition', (
+// 			'transform #{_duration(article)} ease-in-out',
+// 			'filter #{_duration(article)} ease-in-out'
+// 		));
+// 		background-image:		url('../../images/bg.jpg');
+// 		background-position:	center;
+// 		background-size:		cover;
+// 		background-repeat:		no-repeat;
+// 		z-index: 1;
+// 	}
+
+// 	.body.is-article-visible & {
+// 		&:after {
+// 			@include vendor('transform', 'scale(1.0825)');
+// 			@include vendor('filter', 'blur(0.2rem)');
+// 		}
+// 	}
+
+// 	.body.is-loading & {
+// 		&:before {
+// 			background-color:	_palette(bg-alt);
+// 		}
+// 	}
+// }

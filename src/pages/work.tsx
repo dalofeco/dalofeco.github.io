@@ -1,20 +1,33 @@
-import React from "react"
-import {navigate} from 'gatsby';
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import { WorkOverview, WorkDetailOverview } from '../components/work';
+import '../styles/pages/work.less';
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+interface WorkPageParams {
+  workExperienceId?: string;
+}
 
-import { WorkOverview } from "../components/work";
-import '../styles/pages/work.scss';
+const WorkPage = () => {
+  const { workExperienceId } = useParams<WorkPageParams>();
+  if (workExperienceId)
+    return (
+      <Layout modal>
+        <SEO title="Work" />
+        <div id="WorkExperiencePageContainer">
+          <WorkDetailOverview workExperienceId={workExperienceId} />
+        </div>
+      </Layout>
+    );
 
-const WorkPage = () => (
-  <Layout modal>
-		<SEO title="Work" />
-		<div id="WorkPageContainer">
-			<WorkOverview />
-		</div>
-		
-  </Layout>
-)
-
+  return (
+    <Layout modal>
+      <SEO title="Work" />
+      <div id="WorkPageContainer">
+        <WorkOverview />
+      </div>
+    </Layout>
+  );
+};
 export default WorkPage;

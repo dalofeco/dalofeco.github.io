@@ -1,65 +1,52 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import useGallery from '../hooks/gallery';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { PhotoGallery, PhotoAlbum } from '../components/gallery';
+import { GalleryType, PhotoAlbumType } from '../data/photo';
+import Loading from '../components/loading';
 
-import { PhotoAlbumType, GalleryType } from '../types/photo';
-import { getGallery } from '../utils/s3';
-import '../styles/pages/gallery.scss';
-import Loading from '../components/Loading';
+import '../styles/pages/gallery.less';
 
-
-interface GalleryPageProps {
-    location: any;
+interface GalleryPageParams {
+  albumId: string;
 }
 
-export const GalleryPage = ({location}: GalleryPageProps) => {
+const GalleryPage = () => {
+  const [album, setAlbum] = React.useState<PhotoAlbumType | undefined>(undefined);
+  const { albumId } = useParams<GalleryPageParams>();
+  const gallery: GalleryType = useGallery();
 
-    const [gallery, setGallery] = useState(null);
+  React.useEffect(() => {
+    if (gallery && albumId)
+      setAlbum(gallery.albums.find((a) => a.name?.toLowerCase() === decodeURI(albumId).toLowerCase()));
+    else setAlbum(undefined);
+  }, [albumId, gallery]);
 
-    const setAlbum = (index: number) => {
-        
-        return (album: PhotoAlbumType) => {
-            const newGallery: GalleryType = {
-                albums: gallery.albums.map(
-                    (a: PhotoAlbumType, i: number) => i === index ? album : a)
-            }
-            setGallery(newGallery);
-        };
-    }
+  // Photo Album View
+  if (gallery && album)
+    return (
+      <Layout modal closeLink="/gallery">
+        <SEO title={`${album.name} Gallery`} />
+        <div id="GalleryPageContainer">
+          <PhotoAlbum album={album} updateAlbum={setAlbum} />
+        </div>
+      </Layout>
+    );
 
-    useEffect(() => {
-        if (!gallery) getGallery()
-                        .then((gallery: GalleryType) => setGallery(gallery))
-                        .catch(err => alert(err));
-    })
+  // Gallery View
+  if (gallery)
+    return (
+      <Layout modal>
+        <SEO title="Gallery" />
+        <div id="GalleryPageContainer">
+          <PhotoGallery gallery={gallery} />
+        </div>
+      </Layout>
+    );
 
-    // Only if gallery is loaded
-    if (gallery) {
-
-        // Get album name from location
-        const albumName: string = location.pathname.split('/').pop();
-        const albumIndex = gallery.albums.findIndex(a => a.name.toLowerCase() == albumName.toLowerCase());
-        if (albumIndex !== -1)
-            return (
-                <Layout modal closeLink="/gallery">
-                    <SEO title={`${gallery.albums[albumIndex].name} Gallery`}/>
-                    <div id="GalleryPageContainer">
-                        <PhotoAlbum album={gallery.albums[albumIndex]} setAlbum={setAlbum(albumIndex)}/>
-                    </div>                
-                </Layout>        
-            )
-    }
-
-    // Gallery View
-   return (
-        <Layout modal>
-            <SEO title="Gallery" />
-            <div id="GalleryPageContainer">
-                <PhotoGallery gallery={gallery}/>
-            </div> 
-        </Layout>        
-    )
-}
+  return <Loading />;
+};
 
 export default GalleryPage;
