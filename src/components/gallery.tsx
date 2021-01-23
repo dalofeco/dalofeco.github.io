@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faArrowRight, faTimes } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faArrowLeft, faArrowRight, faTimes } from '@fortawesome/free-solid-svg-icons';
+import ReactSimpleImageViewer from 'react-simple-image-viewer';
 import Loading from './loading';
 import Image from './image';
 import { GalleryType, PhotoAlbumType, PhotoMetadataType, PhotoType } from '../data/photo';
@@ -64,21 +65,20 @@ export const PhotoAlbum = ({ album, updateAlbum }: PhotoAlbumProps) => {
     updateAlbum(newAlbum);
   };
 
-  const handlePhotoInspectorCloseClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if ((e.target as HTMLDivElement).id === 'PhotoInspector') setSelectedPhoto(-1);
-    e.stopPropagation();
-  };
+  const handlePhotoInspectorCloseClick = React.useCallback(() => {
+    setSelectedPhoto(-1);
+  }, []);
 
-  const navigatePrevPhoto = () => {
-    const prev: number = selectedPhoto - 1;
-    if (prev < 0) setSelectedPhoto(album.photos.length - 1);
-    else setSelectedPhoto(prev);
-  };
+  // const navigatePrevPhoto = React.useCallback(() => {
+  //   const prev: number = selectedPhoto - 1;
+  //   if (prev < 0) setSelectedPhoto(album.photos.length - 1);
+  //   else setSelectedPhoto(prev);
+  // }, [album.photos, selectedPhoto]);
 
-  const navigateNextPhoto = () => {
-    const next: number = (selectedPhoto + 1) % album.photos.length;
-    setSelectedPhoto(next);
-  };
+  // const navigateNextPhoto = () => {
+  //   const next: number = (selectedPhoto + 1) % album.photos.length;
+  //   setSelectedPhoto(next);
+  // };
 
   return (
     <>
@@ -108,25 +108,30 @@ export const PhotoAlbum = ({ album, updateAlbum }: PhotoAlbumProps) => {
       </div>
 
       {selectedPhoto !== -1 ? (
-        <div id="PhotoInspector" onClick={handlePhotoInspectorCloseClick}>
-          <div id="PhotoInspectorNavigateArrowLeft">
-            <FontAwesomeIcon icon={faArrowLeft} onClick={navigatePrevPhoto} />
-          </div>
-          <div id="PhotoInspectorNavigateArrowRight">
-            <FontAwesomeIcon icon={faArrowRight} onClick={navigateNextPhoto} />
-          </div>
-          <div id="PhotoInspectorCloseContainer">
-            <FontAwesomeIcon icon={faTimes} onClick={() => setSelectedPhoto(-1)} />
-          </div>
-          <Image id="PhotoInspectorImage" src={album.photos[selectedPhoto].uri} />
-          {album.photos[selectedPhoto].metadata ? (
-            <div id="PhotoInspectorMetadataContainer">
-              <p>{album.photos[selectedPhoto].metadata?.title}</p>
-              <p>{album.photos[selectedPhoto].metadata?.description}</p>
-            </div>
-          ) : null}
-        </div>
-      ) : null}
+        <ReactSimpleImageViewer
+          src={album.photos.map((p) => p.uri)}
+          currentIndex={selectedPhoto}
+          onClose={handlePhotoInspectorCloseClick}
+        />
+      ) : // <div id="PhotoInspector" onClick={handlePhotoInspectorCloseClick}>
+      //   <div id="PhotoInspectorNavigateArrowLeft">
+      //     <FontAwesomeIcon icon={faArrowLeft} onClick={navigatePrevPhoto} />
+      //   </div>
+      //   <div id="PhotoInspectorNavigateArrowRight">
+      //     <FontAwesomeIcon icon={faArrowRight} onClick={navigateNextPhoto} />
+      //   </div>
+      //   <div id="PhotoInspectorCloseContainer">
+      //     <FontAwesomeIcon icon={faTimes} onClick={() => setSelectedPhoto(-1)} />
+      //   </div>
+      //   <Image id="PhotoInspectorImage" src={album.photos[selectedPhoto].uri} />
+      //   {album.photos[selectedPhoto].metadata ? (
+      //     <div id="PhotoInspectorMetadataContainer">
+      //       <p>{album.photos[selectedPhoto].metadata?.title}</p>
+      //       <p>{album.photos[selectedPhoto].metadata?.description}</p>
+      //     </div>
+      //   ) : null}
+      // </div>
+      null}
     </>
   );
 };

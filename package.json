@@ -25,6 +25,7 @@
     "react-helmet": "^6.1.0",
     "react-loading": "^2.0.3",
     "react-router-dom": "^5.2.0",
+    "react-simple-image-viewer": "^0.0.8",
     "util": "^0.12.3"
   },
   "devDependencies": {
