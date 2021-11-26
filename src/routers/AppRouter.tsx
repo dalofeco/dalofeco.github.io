@@ -5,12 +5,10 @@ import CodePage from '../pages/code';
 import GalleryPage from '../pages/gallery';
 import WorkPage from '../pages/work';
 import AboutPage from '../pages/about';
-import GA from '../components/ga';
 
 const AppRouter = () => (
   <HashRouter>
     <>
-      <GA />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/code" component={CodePage} />
