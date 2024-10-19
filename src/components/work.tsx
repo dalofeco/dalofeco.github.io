@@ -1,8 +1,6 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAddressBook } from '@fortawesome/free-solid-svg-icons';
 import WorkExperienceData, { WorkExperienceType } from '../data/work';
 
 import '../styles/components/work.less';
