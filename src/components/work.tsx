@@ -15,15 +15,6 @@ export const WorkOverview = () => {
     <>
       <div className="WorksOverviewHeaderContainer">
         <h2 className="WorksOverviewHeader">Work</h2>
-        <div className="WorksOverviewLinksContainer">
-          <a className="WorksOverviewLinkButton WorksOverviewResumeLinkButton" href="files/resume.pdf">
-            <FontAwesomeIcon icon={faAddressBook} />
-            <label>&nbsp;&nbsp;Resume</label>
-          </a>
-          {/* <a href="/files/resume.pdf" target="_blank">
-                    <FontAwesomeIcon icon={faDownload}/>&nbsp;&nbsp;Resume
-                </a> */}
-        </div>
       </div>
 
       <div className="WorksOverviewContainer">
